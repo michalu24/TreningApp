@@ -1,7 +1,13 @@
 package MainFolder;
 
 public enum LowerBodyExercises {
-    EXERCISE_1("Przysiady", "Klasyczne przysiady", 10),
+    EXERCISE_SQUAT("Przysiady", "Klasyczne przysiady", 10),
+    EXERCISE_WALKING_LUNGE("Wykroki", "Wykroki nogą w przód", 10),
+    EXERCISE_ARCHER_SQUAT("Przysiady łucznika", "Przysiady z przenoszeniem ciężaru", 10),
+    EXERCISE_ONE_LEG_BOX_SQUAT("Przysiady na jednej nodze", "Przysiady na jednej nodze z oparciem", 10),
+    EXERCISE_HOVER_LUNGE ("Przysiady na jednej nodze ze zgięciem kolana", "Zgięte kolano do przyklęku",10);
+
+
     ;
 
 

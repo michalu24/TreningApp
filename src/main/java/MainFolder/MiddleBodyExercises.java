@@ -1,7 +1,10 @@
 package MainFolder;
 
 public enum MiddleBodyExercises {
-    EXERCISE_1("Spięcia brzucha","Zwykłe brzuszki",10)
+    EXERCISE_CRUNCHES("Spięcia brzucha","Zwykłe brzuszki",10),
+    EXERCISE_LEG_RISES("Wznosy nóg", "Wznosy nóg w lerzeniu na plecach", 10),
+    EXERCISE_SCISSORS("Norzyczki", "Skosy nóg w lerzeniu na plecach", 10),
+    EXERCISE_RUSSIAN_TWIST("Skosy tułowie", "Skosy siedząc z obniżonymi plecami", 10),
     ;
 
 

@@ -15,7 +15,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
-        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFWorkbook workbook = new HSSFWorkbook(); // można by rozbić w konstruktorze osobnej klasy
         HSSFSheet sheet1 = workbook.createSheet("Zestaw Cwiczen");
 
         //niestety tylko jedna opcja do ustalenia szerokości
@@ -64,24 +64,40 @@ public class Main {
         List<HSSFRow> listRows = new LinkedList<>();
         List<HSSFCell> listCells = new LinkedList<>();
 
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < 11; i++) {
             listRows.add(sheet1.createRow(i));
             for (int j = 0; j < 3; j++) {
                 listCells.add(listRows.get(i - 1).createCell(j));
             }
         }
 
-        //_______________________________________________________
-
         //Przykład dodania wartości do komórek
-        listRows.get(0).getCell(0)
-                .setCellValue(MiddleBodyExercises.EXERCISE_1.getName());
-        listRows.get(0).getCell(1)
-                .setCellValue(MiddleBodyExercises.EXERCISE_1.getDescription());
-        listRows.get(0).getCell(2)
-                .setCellValue(MiddleBodyExercises.EXERCISE_1.getCount());
+        // trzeba stworzyć listy
+
+        List<UpperBodyExercises> listUpper = ShuffleExercise.fromUpperBody();
+        List<LowerBodyExercises> listLower = ShuffleExercise.fromLowerBody();
+        List<MiddleBodyExercises> listMiddle = ShuffleExercise.fromMiddleBody();
+
+        for ( int i = 0; i < 3; i++) {
+            listRows.get(i).getCell(0).setCellValue(listUpper.get(i).getName());
+            listRows.get(i).getCell(1).setCellValue(listUpper.get(i).getDescription());
+            listRows.get(i).getCell(2).setCellValue(listUpper.get(i).getCount());
+        }
+        for ( int i = 3; i < 6; i++) {
+            listRows.get(i).getCell(0).setCellValue(listLower.get(i-3).getName());
+            listRows.get(i).getCell(1).setCellValue(listLower.get(i-3).getDescription());
+            listRows.get(i).getCell(2).setCellValue(listLower.get(i-3).getCount());
+        }
+        for ( int i = 6; i < 9; i++) {
+            listRows.get(i).getCell(0).setCellValue(listMiddle.get(i-6).getName());
+            listRows.get(i).getCell(1).setCellValue(listMiddle.get(i-6).getDescription());
+            listRows.get(i).getCell(2).setCellValue(listMiddle.get(i-6).getCount());
+        }
+
+
 
         //APLIKACJA DO DALSZEGO ROZWOJU
+        // Wiele czynności można zrobić w osobnych funkcjach i zrobić refactoring
 
 
         try {
